@@ -11,7 +11,7 @@ const Stacks = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="HomeStack" component={Tabs} />
-      <Stack.Screen name="ScannerStack" component={ScannerPage} />
+      <Stack.Screen name="ScannerStack" component={Tabs} />
       <Stack.Screen name="AboutStack" component={AboutPage} />
     </Stack.Navigator>
   );
