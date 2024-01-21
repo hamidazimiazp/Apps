@@ -3,6 +3,7 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import {
   BottomSheetModal,
   BottomSheetModalProvider,
+  BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
 
 const bottomSheetModalPanel = ({ children, toggle, openModal }) => {
@@ -10,7 +11,7 @@ const bottomSheetModalPanel = ({ children, toggle, openModal }) => {
   const bottomSheetModalRef = useRef(null);
 
   // variables
-  const snapPoints = useMemo(() => ["100%", "50%"], []);
+  const snapPoints = useMemo(() => ["50%", "50%"], []);
 
   // callbacks
   const handlePresentModalPress = useCallback(() => {
@@ -19,7 +20,8 @@ const bottomSheetModalPanel = ({ children, toggle, openModal }) => {
 
   // callbacks
   const handleSheetChanges = useCallback((index) => {
-    console.log("handleSheetChanges", index);
+    // console.log("handleSheetChanges", index);
+    openModal(false);
   }, []);
 
   useEffect(() => {
@@ -36,7 +38,9 @@ const bottomSheetModalPanel = ({ children, toggle, openModal }) => {
         onChange={handleSheetChanges}
       >
         <View style={styles.contentContainer}>
-          <ScrollView>{children}</ScrollView>
+          <BottomSheetScrollView showsVerticalScrollIndicator={false}>
+            {children}
+          </BottomSheetScrollView>
         </View>
       </BottomSheetModal>
     </BottomSheetModalProvider>

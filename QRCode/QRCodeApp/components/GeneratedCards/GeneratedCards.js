@@ -34,6 +34,36 @@ const GeneratedCards = ({ setBottomPanelData, openModal }) => {
       title: "this is title 5",
       description: "this is a small description for code 5",
     },
+    {
+      id: 6,
+      image: require("../../assets/images/QRcode.png"),
+      title: "this is title 6",
+      description: "this is a small description for code 6",
+    },
+    {
+      id: 7,
+      image: require("../../assets/images/QRcode.png"),
+      title: "this is title 7",
+      description: "this is a small description for code 7",
+    },
+    {
+      id: 8,
+      image: require("../../assets/images/QRcode.png"),
+      title: "this is title 8",
+      description: "this is a small description for code 8",
+    },
+    {
+      id: 9,
+      image: require("../../assets/images/QRcode.png"),
+      title: "this is title 9",
+      description: "this is a small description for code 9",
+    },
+    {
+      id: 10,
+      image: require("../../assets/images/QRcode.png"),
+      title: "this is title 10",
+      description: "this is a small description for code 10",
+    },
   ];
 
   return (

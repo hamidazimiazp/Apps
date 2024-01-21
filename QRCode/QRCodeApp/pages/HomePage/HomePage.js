@@ -30,7 +30,9 @@ const HomePage = () => {
         toggle={toggleBottomPanel}
         openModal={toggleBottomPanelHandler}
       >
-        <QrcodeFullDetails data={BottomPanelData} />
+        <ScrollView>
+          <QrcodeFullDetails data={BottomPanelData} />
+        </ScrollView>
       </BottomSheetPanel>
     </View>
   );
