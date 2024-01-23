@@ -2,12 +2,13 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { theme } from "../../config/colors";
 import { Ionicons } from "@expo/vector-icons";
+import { base_url } from "../../config/statics";
 
 const QrcodeFullDetails = ({ data }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>QR Code</Text>
-      <Image source={data.image} style={styles.image} />
+      <Image source={{ uri: base_url + data.image }} style={styles.image} />
       <Text style={styles.title}>{data.title}</Text>
       <Text style={styles.description}>{data.description}</Text>
       <TouchableOpacity style={styles.sendButton} activeOpacity={0.8}>

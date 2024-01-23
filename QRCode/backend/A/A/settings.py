@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ajp&okx%$((p3nkugg@a2j%e@9&%ku%$@6(kc%@fn+f(w-54os
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -133,23 +133,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
-
-INTERNAL_IPS = [
-    # ...
-    "127.0.0.1",
-    "192.168.1.8",
-    "192.168.112.210",
-    # ...
-]
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-    "exp://192.168.112.210:8081",
-]
-
 REST_FRAMEWORK = {
     # YOUR SETTINGS
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
+
+CORS_ORIGIN_WHITELIST = [
+    'exp://192.168.1.7:8081',
+]
+
+ALLOWED_HOSTS += '192.168.1.7'
+CORS_ORIGIN_ALLOW_ALL = True 
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'QR Code',

@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import React from "react";
 import { theme } from "../../config/colors";
 import { TextShortener } from "../../utils/tools";
+import { base_url } from "../../config/statics";
 
 const GeneratedCard = ({ data }) => {
   return (
@@ -10,7 +11,7 @@ const GeneratedCard = ({ data }) => {
         <Text style={styles.title}>{TextShortener(data.title, 20)}</Text>
       </View>
       <View style={styles.rightCard}>
-        <Image style={styles.image} source={data.image} />
+        <Image style={styles.image} source={{ uri: base_url + data.image }} />
       </View>
     </View>
   );
