@@ -1,11 +1,12 @@
-import { View, ScrollView, StyleSheet } from "react-native";
+import { Text, View, ScrollView, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
 import GeneratedCards from "../../components/GeneratedCards/GeneratedCards";
 import { theme } from "../../config/colors";
 import BottomSheetPanel from "../../components/BottomSheetPanel/BottomSheetPanel";
 import QrcodeFullDetails from "../../components/QrcodeFullDetails/QrcodeFullDetails";
+import { TouchableOpacity } from "@gorhom/bottom-sheet";
 
-const HomePage = () => {
+const HomePage = ({ navigation }) => {
   const [toggleBottomPanel, setToggleBottomPanel] = useState(false);
   const [BottomPanelData, setBottomPanel] = useState({
     id: 0,
@@ -20,7 +21,18 @@ const HomePage = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <View style={styles.craeteButtonWrapper}>
+        <TouchableOpacity
+          style={styles.craeteButton}
+          onPress={() => {
+            navigation.navigate("Create");
+          }}
+          activeOpacity={0.7}
+        >
+          <Text style={styles.craeteButtonText}>Create QRcode</Text>
+        </TouchableOpacity>
+      </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <GeneratedCards
           setBottomPanelData={setBottomPanel}
           openModal={toggleBottomPanelHandler}
@@ -30,7 +42,7 @@ const HomePage = () => {
         toggle={toggleBottomPanel}
         openModal={toggleBottomPanelHandler}
       >
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <QrcodeFullDetails data={BottomPanelData} />
         </ScrollView>
       </BottomSheetPanel>
@@ -45,5 +57,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.Quaternary,
     paddingHorizontal: 20,
+  },
+  craeteButtonWrapper: {
+    marginTop: 10,
+  },
+  craeteButton: {
+    paddingVertical: 10,
+    width: "95%",
+    borderWidth: 1,
+    borderColor: theme.white,
+    borderRadius: 5,
+    marginLeft: 10,
+  },
+  craeteButtonText: {
+    color: theme.white,
+    textAlign: "center",
   },
 });
