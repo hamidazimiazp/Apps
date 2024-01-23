@@ -32,12 +32,11 @@ const HomePage = ({ navigation }) => {
           <Text style={styles.craeteButtonText}>Create QRcode</Text>
         </TouchableOpacity>
       </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <GeneratedCards
-          setBottomPanelData={setBottomPanel}
-          openModal={toggleBottomPanelHandler}
-        />
-      </ScrollView>
+      <GeneratedCards
+        setBottomPanelData={setBottomPanel}
+        openModal={toggleBottomPanelHandler}
+      />
+
       <BottomSheetPanel
         toggle={toggleBottomPanel}
         openModal={toggleBottomPanelHandler}
