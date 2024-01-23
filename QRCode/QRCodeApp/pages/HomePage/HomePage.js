@@ -5,8 +5,9 @@ import { theme } from "../../config/colors";
 import BottomSheetPanel from "../../components/BottomSheetPanel/BottomSheetPanel";
 import QrcodeFullDetails from "../../components/QrcodeFullDetails/QrcodeFullDetails";
 import { TouchableOpacity } from "@gorhom/bottom-sheet";
+import Header from "../../components/Header/Header";
 
-const HomePage = ({ navigation }) => {
+const HomePage = ({ navigation, route }) => {
   const [toggleBottomPanel, setToggleBottomPanel] = useState(false);
   const [BottomPanelData, setBottomPanel] = useState({
     id: 0,
@@ -19,8 +20,13 @@ const HomePage = ({ navigation }) => {
     setToggleBottomPanel(!toggleBottomPanel);
   };
 
+  const drawerHandler = () => {
+    navigation.openDrawer();
+  };
+
   return (
     <View style={styles.container}>
+      <Header drawerHandler={drawerHandler} />
       <View style={styles.craeteButtonWrapper}>
         <TouchableOpacity
           style={styles.craeteButton}

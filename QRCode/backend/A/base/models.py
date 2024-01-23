@@ -18,7 +18,7 @@ class QRCode(models.Model):
     
     
     class Meta:
-        ordering=("title",)
+        ordering=("created",)
     
     
     def save(self, *args, **kwargs):

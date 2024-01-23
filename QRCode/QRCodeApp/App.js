@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "react-native";
 import Drawer from "./config/Drawer";
 import { theme } from "./config/colors";
-import Stacks from "./config/Stack";
+import Toast from "react-native-toast-message";
 
 export default function App() {
   return (
@@ -12,6 +12,7 @@ export default function App() {
       <NavigationContainer>
         <Drawer />
       </NavigationContainer>
+      <Toast />
     </>
   );
 }

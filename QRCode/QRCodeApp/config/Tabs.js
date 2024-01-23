@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage/HomePage";
 import ScannerPage from "../pages/ScannerPage/ScannerPage";
 import { theme } from "./colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
+Ionicons.loadFont();
 
 const Tab = createBottomTabNavigator();
 
