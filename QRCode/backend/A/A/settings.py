@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # third party
     'rest_framework',
     'corsheaders',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,16 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     "exp://192.168.112.210:8081",
 ]
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'QR Code',
+    'DESCRIPTION': 'Qr Code Project',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
