@@ -11,7 +11,11 @@ const QrcodeFullDetails = ({ data }) => {
       <Image source={{ uri: base_url + data.image }} style={styles.image} />
       <Text style={styles.title}>{data.title}</Text>
       <Text style={styles.description}>{data.description}</Text>
-      <TouchableOpacity style={styles.sendButton} activeOpacity={0.8}>
+      <TouchableOpacity
+        style={styles.sendButton}
+        activeOpacity={0.8}
+        onPress={() => onShare()}
+      >
         <Text style={styles.sendButtonText}>Share</Text>
         <Ionicons
           style={{ marginLeft: 10 }}
