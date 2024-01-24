@@ -27,7 +27,8 @@
     "react-native-share": "^10.0.2",
     "react-native-toast-message": "^2.2.0",
     "rn-sliding-up-panel": "^2.4.6",
-    "expo-barcode-scanner": "~12.9.2"
+    "expo-barcode-scanner": "~12.9.2",
+    "expo-clipboard": "~5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

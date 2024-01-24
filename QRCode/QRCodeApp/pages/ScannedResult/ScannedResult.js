@@ -3,13 +3,22 @@ import React from "react";
 import { theme } from "../../config/colors";
 import { TouchableOpacity } from "@gorhom/bottom-sheet";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import * as Clipboard from "expo-clipboard";
+import Toast from "react-native-toast-message";
 
 Ionicons.loadFont();
 
 const ScannedResult = ({ navigation, route }) => {
   const { type, data } = route.params;
 
-  const copyData = () => {};
+  const copyData = () => {
+    Clipboard.setString(data);
+    Toast.show({
+      type: "success",
+      text1: "Copied!",
+      text2: `${data}👋`,
+    });
+  };
 
   return (
     <View style={styles.container}>
