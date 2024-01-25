@@ -9,6 +9,8 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 Ionicons.loadFont();
 
 const CreateQrCode = ({ navigation }) => {
+  const [toggle, setToggle] = useState(false);
+
   const [data, setData] = useState({
     title: "",
     description: "",
@@ -44,7 +46,7 @@ const CreateQrCode = ({ navigation }) => {
             text1: "Created!",
             text2: "A new Qr code has been created 👋",
           });
-          navigation.navigate("Home", { refresh: true });
+          setToggle(!toggle);
         } else {
           Toast.show({
             type: "error",
@@ -55,6 +57,13 @@ const CreateQrCode = ({ navigation }) => {
       });
     }
   };
+
+  useEffect(() => {
+    navigation.navigate("Home", {
+      screen: "HomeTab",
+      params: { refreshAgain: toggle },
+    });
+  }, [toggle]);
 
   return (
     <View style={styles.container}>

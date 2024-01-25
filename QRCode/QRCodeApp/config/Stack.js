@@ -8,7 +8,7 @@ import ScannedResult from "../pages/ScannedResult/ScannedResult";
 
 const Stack = createNativeStackNavigator();
 
-const Stacks = () => {
+const Stacks = ({ route }) => {
   return (
     <Stack.Navigator
       screenOptions={{

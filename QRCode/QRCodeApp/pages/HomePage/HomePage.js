@@ -41,6 +41,7 @@ const HomePage = ({ navigation, route }) => {
       <GeneratedCards
         setBottomPanelData={setBottomPanel}
         openModal={toggleBottomPanelHandler}
+        refreshAgain={route?.params?.refreshAgain ?? false}
       />
 
       <BottomSheetPanel

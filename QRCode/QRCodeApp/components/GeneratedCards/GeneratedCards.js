@@ -13,7 +13,7 @@ import { base_url } from "../../config/statics";
 import { theme } from "../../config/colors";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-const GeneratedCards = ({ setBottomPanelData, openModal }) => {
+const GeneratedCards = ({ setBottomPanelData, openModal, refreshAgain }) => {
   const [data, setData] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
 
@@ -35,6 +35,10 @@ const GeneratedCards = ({ setBottomPanelData, openModal }) => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [refreshAgain]);
 
   return (
     <ScrollView
