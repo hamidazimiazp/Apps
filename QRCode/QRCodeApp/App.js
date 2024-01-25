@@ -8,7 +8,10 @@ import Toast from "react-native-toast-message";
 export default function App() {
   return (
     <>
-      <StatusBar backgroundColor={theme.background} barStyle={"dark-content"} />
+      <StatusBar
+        backgroundColor={theme.Quaternary}
+        barStyle={"light-content"}
+      />
       <NavigationContainer>
         <Drawer />
       </NavigationContainer>
