@@ -17,6 +17,8 @@ import {
 import { theme } from "./colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
+import PKG from "../package.json";
+
 const Drawerr = createDrawerNavigator();
 
 const Drawer = () => {
@@ -58,6 +60,7 @@ const Drawer = () => {
               activeTintColor={theme.white}
               inactiveTintColor={theme.textLight}
             />
+            <Text style={styles.version}>V{PKG.version}</Text>
           </SafeAreaView>
         );
       }}
@@ -110,5 +113,14 @@ const styles = StyleSheet.create({
   title: {
     color: theme.white,
     fontWeight: "bold",
+  },
+  version: {
+    textAlign: "center",
+    color: theme.white,
+    fontSize: 12,
+    position: "absolute",
+    bottom: "2%",
+    left: "50%",
+    marginLeft: -22,
   },
 });
