@@ -3,11 +3,12 @@ import HomePage from "../pages/HomePage/HomePage";
 import ScannerPage from "../pages/ScannerPage/ScannerPage";
 import { theme } from "./colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import CreateQrCode from "../pages/CreateQrCode/CreateQrCode";
 Ionicons.loadFont();
 
 const Tab = createBottomTabNavigator();
 
-const Tabs = ({ route }) => {
+const Tabs = ({ route, navigation }) => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -37,7 +38,11 @@ const Tabs = ({ route }) => {
       })}
     >
       <Tab.Screen name="HomeTab" component={HomePage} />
-      <Tab.Screen name="ScannerTab" component={ScannerPage} />
+      <Tab.Screen
+        name="ScannerTab"
+        component={ScannerPage}
+        options={{ unmountOnBlur: true }}
+      />
     </Tab.Navigator>
   );
 };

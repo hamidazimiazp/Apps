@@ -7,11 +7,13 @@ import { theme } from "../../config/colors";
 
 Ionicons.loadFont();
 
-export default function ScannerPage({ navigation }) {
+const ScannerPage = ({ navigation }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
   useEffect(() => {
+    setScanned(false);
+
     const getBarCodeScannerPermissions = async () => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === "granted");
@@ -26,10 +28,18 @@ export default function ScannerPage({ navigation }) {
   };
 
   if (hasPermission === null) {
-    return <Text>Requesting for camera permission</Text>;
+    return (
+      <View style={styles.container}>
+        <Text style={styles.messageS}>Requesting for camera permission</Text>
+      </View>
+    );
   }
   if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
+    return (
+      <View style={styles.container}>
+        <Text style={styles.messageF}>No access to camera</Text>
+      </View>
+    );
   }
 
   return (
@@ -60,7 +70,9 @@ export default function ScannerPage({ navigation }) {
       )}
     </View>
   );
-}
+};
+
+export default ScannerPage;
 
 const styles = StyleSheet.create({
   container: {
@@ -82,5 +94,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 5,
+  },
+  messageS: {
+    color: theme.success,
+  },
+  messageF: {
+    color: theme.danger,
   },
 });
