@@ -73,9 +73,10 @@ const Drawer = () => {
         }}
       />
       <Drawerr.Screen
-        name="Create QR Code"
+        name="Create"
         component={CreateQrCode}
         options={{
+          drawerLabel: "Create QR Code",
           drawerIcon: () => {
             return <Ionicons name="qr-code" size={18} color={theme.white} />;
           },
