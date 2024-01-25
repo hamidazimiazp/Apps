@@ -60,7 +60,7 @@ const GeneratedCards = ({ setBottomPanelData, openModal }) => {
         ) : (
           <View style={styles.ifNotQrCodeWrapper}>
             <Text style={styles.ifNotQrCodeText}>Make One</Text>
-            <FontAwesome5 name="hand-point-up" size={18} color={theme.white} />
+            <FontAwesome5 name="hand-point-up" size={14} color={theme.white} />
           </View>
         )}
       </SafeAreaView>
@@ -84,5 +84,6 @@ const styles = StyleSheet.create({
   },
   ifNotQrCodeText: {
     color: theme.white,
+    fontSize: 14,
   },
 });
