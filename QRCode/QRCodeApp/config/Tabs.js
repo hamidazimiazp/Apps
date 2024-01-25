@@ -37,11 +37,7 @@ const Tabs = ({ route, navigation }) => {
         },
       })}
     >
-      <Tab.Screen
-        name="HomeTab"
-        component={HomePage}
-        options={{ unmountOnBlur: true }}
-      />
+      <Tab.Screen name="HomeTab" component={HomePage} />
       <Tab.Screen
         name="ScannerTab"
         component={ScannerPage}
