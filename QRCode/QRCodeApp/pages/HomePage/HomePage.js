@@ -49,7 +49,10 @@ const HomePage = ({ navigation, route }) => {
         openModal={toggleBottomPanelHandler}
       >
         <ScrollView showsVerticalScrollIndicator={false}>
-          <QrcodeFullDetails data={BottomPanelData} />
+          <QrcodeFullDetails
+            data={BottomPanelData}
+            closeModal={setToggleBottomPanel}
+          />
         </ScrollView>
       </BottomSheetPanel>
     </View>

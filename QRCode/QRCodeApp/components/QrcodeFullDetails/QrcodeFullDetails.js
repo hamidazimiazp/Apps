@@ -1,11 +1,15 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { theme } from "../../config/colors";
 import { Ionicons } from "@expo/vector-icons";
 import { base_url } from "../../config/statics";
 import Toast from "react-native-toast-message";
+import { useNavigation } from "@react-navigation/native";
 
-const QrcodeFullDetails = ({ data }) => {
+const QrcodeFullDetails = ({ data, closeModal }) => {
+  const [toggle, setToggle] = useState(false);
+  const navigation = useNavigation();
+
   const removeCode = () => {
     fetch(base_url + `/api/qrcode/${data.id}/`, {
       method: "DELETE",
@@ -18,8 +22,9 @@ const QrcodeFullDetails = ({ data }) => {
           type: "info",
           text1: "Deleted!",
         });
+        setToggle(!toggle);
+        closeModal(false);
       } else {
-        console.log(res);
         Toast.show({
           type: "error",
           text1: "Faild To Delete",
@@ -28,6 +33,13 @@ const QrcodeFullDetails = ({ data }) => {
       }
     });
   };
+
+  useEffect(() => {
+    navigation.navigate("Home", {
+      screen: "HomeTab",
+      params: { refreshAgain: toggle },
+    });
+  }, [toggle]);
 
   return (
     <View style={styles.container}>

@@ -29,22 +29,26 @@ const bottomSheetModalPanel = ({ children, toggle, openModal }) => {
   }, [toggle]);
 
   // renders
-  return (
-    <BottomSheetModalProvider>
-      <BottomSheetModal
-        ref={bottomSheetModalRef}
-        index={1}
-        snapPoints={snapPoints}
-        onChange={handleSheetChanges}
-      >
-        <View style={styles.contentContainer}>
-          <BottomSheetScrollView showsVerticalScrollIndicator={false}>
-            {children}
-          </BottomSheetScrollView>
-        </View>
-      </BottomSheetModal>
-    </BottomSheetModalProvider>
-  );
+  if (toggle) {
+    return (
+      <BottomSheetModalProvider>
+        <BottomSheetModal
+          ref={bottomSheetModalRef}
+          index={1}
+          snapPoints={snapPoints}
+          onChange={handleSheetChanges}
+        >
+          <View style={styles.contentContainer}>
+            <BottomSheetScrollView showsVerticalScrollIndicator={false}>
+              {children}
+            </BottomSheetScrollView>
+          </View>
+        </BottomSheetModal>
+      </BottomSheetModalProvider>
+    );
+  } else {
+    return null;
+  }
 };
 
 const styles = StyleSheet.create({
