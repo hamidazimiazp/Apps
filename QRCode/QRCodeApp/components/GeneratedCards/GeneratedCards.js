@@ -19,7 +19,7 @@ const GeneratedCards = ({ setBottomPanelData, openModal, refreshAgain }) => {
 
   const fetchData = async () => {
     setRefreshing(true);
-    fetch(base_url + "/api/qrcode")
+    fetch(base_url + "/api/qrcode/")
       .then((response) => response.json())
       .then((data) => {
         setData(data);

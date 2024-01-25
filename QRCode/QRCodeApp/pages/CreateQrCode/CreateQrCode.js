@@ -32,7 +32,7 @@ const CreateQrCode = ({ navigation }) => {
         text2: "All Fields Required 👋",
       });
     } else {
-      fetch(base_url + "/api/qrcode", {
+      fetch(base_url + "/api/qrcode/", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
