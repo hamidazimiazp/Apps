@@ -7,16 +7,19 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import ImageSlider from "../components/ImageSlider";
 
 Ionicons.loadFont();
 
 const Home = () => {
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
+      {/* status bar */}
       <StatusBar style={"dark"} />
 
-      {/* punchline */}
+      {/* punchline & avatar*/}
       <View style={styles.punchline}>
+        {/* punchline */}
         <View style={styles.punchlinContent}>
           <Text style={styles.punchlinContentText}>READY TO</Text>
           <Text
@@ -35,6 +38,11 @@ const Home = () => {
             <Ionicons name="notifications" size={hp(3)} color={"gray"} />
           </View>
         </View>
+      </View>
+
+      {/* image slider */}
+      <View>
+        <ImageSlider />
       </View>
     </SafeAreaView>
   );
