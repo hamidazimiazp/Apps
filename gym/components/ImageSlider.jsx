@@ -18,6 +18,7 @@ const ImageSlider = () => {
       firstItem={1}
       autoplayInterval={4000}
       itemWidth={wp(100) - 70}
+      keyExtractor={(item, index) => item.id + index}
       slideStyle={{
         display: "flex",
         alignItems: "center",
@@ -32,7 +33,7 @@ const ItemCard = ({ item, index }, parallaxProps) => {
   return (
     <View style={styles.ItemCardWrapper}>
       <ParallaxImage
-        source={item}
+        source={item.image}
         containerStyle={{ borderRadius: 30, flex: 1 }}
         style={{ resizeMode: "contain" }}
         parallaxFactor={1}
