@@ -8,6 +8,7 @@ import {
 } from "react-native-responsive-screen";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import ImageSlider from "../components/ImageSlider";
+import BodyParts from "../components/BodyParts";
 
 Ionicons.loadFont();
 
@@ -31,7 +32,7 @@ const Home = () => {
         {/* avatar */}
         <View style={styles.avatarWrapper}>
           <Image
-            source={require("../assets/images/avatar.png")}
+            source={require("../assets/images/avatar.jpg")}
             style={styles.avatarImage}
           />
           <View style={styles.iconWrapper}>
@@ -41,8 +42,13 @@ const Home = () => {
       </View>
 
       {/* image slider */}
-      <View>
+      <View style={{ marginTop: 15 }}>
         <ImageSlider />
+      </View>
+
+      {/* body parts list */}
+      <View style={{ flex: 1, marginTop: 15 }}>
+        <BodyParts />
       </View>
     </SafeAreaView>
   );
