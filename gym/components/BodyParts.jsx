@@ -13,8 +13,11 @@ import {
 } from "react-native-responsive-screen";
 import { bodyParts } from "../constants";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 
 const BodyParts = () => {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Exercises</Text>
@@ -27,7 +30,7 @@ const BodyParts = () => {
         numColumns={2}
         columnWrapperStyle={{ justifyContent: "space-between" }}
         renderItem={({ item, index }) => {
-          return <BodyPartCard key={index} data={item} />;
+          return <BodyPartCard router={router} key={index} data={item} />;
         }}
       />
     </View>
@@ -36,10 +39,14 @@ const BodyParts = () => {
 
 export default BodyParts;
 
-const BodyPartCard = ({ data }) => {
+const BodyPartCard = ({ data, router }) => {
   return (
     <View>
-      <TouchableOpacity activeOpacity={0.8} style={styles.bodyPartCard}>
+      <TouchableOpacity
+        onPress={() => router.push({ pathname: "/exercises", params: data })}
+        activeOpacity={0.8}
+        style={styles.bodyPartCard}
+      >
         <Image
           source={data.image}
           resizeMode="cover"
