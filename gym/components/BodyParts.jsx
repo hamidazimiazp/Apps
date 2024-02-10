@@ -30,7 +30,7 @@ const BodyParts = () => {
         numColumns={2}
         columnWrapperStyle={{ justifyContent: "space-between" }}
         renderItem={({ item, index }) => {
-          return <BodyPartCard router={router} key={index} data={item} />;
+          return <BodyPartCard router={router} index={index} item={item} />;
         }}
       />
     </View>
@@ -39,16 +39,16 @@ const BodyParts = () => {
 
 export default BodyParts;
 
-const BodyPartCard = ({ data, router }) => {
+const BodyPartCard = ({ item, router, index }) => {
   return (
     <View>
       <TouchableOpacity
-        onPress={() => router.push({ pathname: "/exercises", params: data })}
+        onPress={() => router.push({ pathname: "/exercises", params: item })}
         activeOpacity={0.8}
         style={styles.bodyPartCard}
       >
         <Image
-          source={data.image}
+          source={item.image}
           resizeMode="cover"
           style={{
             width: wp(45),
@@ -71,7 +71,7 @@ const BodyPartCard = ({ data, router }) => {
             borderBottomRightRadius: 35,
           }}
         />
-        <Text style={styles.cardTitle}>{data?.name}</Text>
+        <Text style={styles.cardTitle}>{item?.name}</Text>
       </TouchableOpacity>
     </View>
   );

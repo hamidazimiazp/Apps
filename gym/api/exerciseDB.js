@@ -1,7 +1,7 @@
-import { rapidAPIKey } from "../constants";
 import axios from "axios";
+import { rapidApiKey } from "../constants";
 
-const base_url = "https://exercisedb.p.rapidapi.com/exercises";
+const baseUrl = "https://exercisedb.p.rapidapi.com";
 
 const apiCall = async (url, params) => {
   try {
@@ -10,19 +10,26 @@ const apiCall = async (url, params) => {
       url,
       params,
       headers: {
-        "X-RapidAPI-Key": "ad1e976bc9msh78daba39cc1cb6ep15f841jsnc3b1c8e076f1",
+        "X-RapidAPI-Key": rapidApiKey,
         "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
       },
     };
-
     const response = await axios.request(options);
     return response.data;
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    console.log("error: ", err.message);
   }
 };
 
-export const fetchExercisesByBodyPart = async (bodyPart) => {
-  let data = await apiCall(base_url + `/exercises/bodyPart/${bodyPart}`);
+export const fetchExercises = async (params) => {
+  let data = await apiCall(baseUrl + `/exercises`, params);
+  return data;
+};
+
+export const fetchExercisesByBodypart = async (bodyPart, limit) => {
+  let data = await apiCall(
+    baseUrl + `/exercises/bodyPart/${bodyPart}`,
+    (params = { limit })
+  );
   return data;
 };
