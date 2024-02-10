@@ -12,12 +12,14 @@ export default function _layout() {
         name="exercises"
         options={{
           presentation: "fullScreenModal",
+          gestureEnabled: true,
         }}
       />
       <Stack.Screen
         name="exerciseDetails"
         options={{
           presentation: "modal",
+          gestureEnabled: true,
         }}
       />
     </Stack>
