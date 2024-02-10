@@ -29,9 +29,9 @@ const BodyParts = () => {
         contentContainerStyle={{ paddingBottom: 50, paddingTop: 20 }}
         numColumns={2}
         columnWrapperStyle={{ justifyContent: "space-between" }}
-        renderItem={({ item, index }) => {
-          return <BodyPartCard router={router} index={index} item={item} />;
-        }}
+        renderItem={({ item, index }) => (
+          <BodyPartCard router={router} index={index} item={item} />
+        )}
       />
     </View>
   );
@@ -71,7 +71,7 @@ const BodyPartCard = ({ item, router, index }) => {
             borderBottomRightRadius: 35,
           }}
         />
-        <Text style={styles.cardTitle}>{item?.name}</Text>
+        <Text style={styles.cardTitle}>{item.name}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -92,6 +92,14 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     padding: 4,
     marginBottom: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+    elevation: 2,
   },
   cardTitle: {
     color: "#fff",
